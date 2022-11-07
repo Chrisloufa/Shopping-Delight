@@ -10,10 +10,6 @@ body {
     font-family: 'Lato';
 }
 
-.pt-4 {
-    padding-top: 5rem;
-}
-
 /* from Bulma */
 .icon {
     align-items: center;
@@ -207,4 +203,9 @@ a.category-badge > span.badge:hover {
     body {
         height: calc(100vh - 116px);
     }
+}
+
+/* from bootstrap */
+.pt-4 {
+    padding-top: 5rem !important;
 }
