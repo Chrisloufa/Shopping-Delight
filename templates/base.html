@@ -77,6 +77,7 @@
 
 <body>
 
+  <header class="container-fluid fixed-top">
   <!-- Navbar -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container">
@@ -175,6 +176,7 @@
 
   
   </nav>
+</header>
   <!-- Navbar -->
 
   <!--Carousel Wrapper-->
@@ -305,13 +307,15 @@
     <!--/.Controls-->
 
   </div>
-  <!--/.Carousel Wrapper-->
 
-  {% block content %}
-  {% endblock %}
+  <!--/.Carousel Wrapper-->
 
   <!--Main layout-->
   <main>
+
+    {% block content %}
+    {% endblock %}
+
     <div class="container">
 
       <!--Pagination-->
@@ -437,6 +441,10 @@
       new WOW().init();
 
   </script>
+
+    {% block postloadjs %}
+    {% endblock %}
+
 
 </body>
 
