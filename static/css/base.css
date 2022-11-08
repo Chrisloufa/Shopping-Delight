@@ -209,3 +209,7 @@ a.category-badge > span.badge:hover {
 .pt-4 {
     padding-top: 5rem !important;
 }
+
+.nav-item {
+    color: black;
+  }

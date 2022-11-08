@@ -1,5 +1,5 @@
 [{
-  "pk": 1654,
+  "pk": 16531,
   "model": "products.product",
   "fields":{
       "sku": "1654",
@@ -8,8 +8,8 @@
       "price": 53.99,
       "category": 1,
       "rating": 4.6,
-      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1654.jpg",
-      "image": "1654.jpg"
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRV-a8PSlgv9ZucmEYFO-s9Tt4wKDSxHqxzvmEJmmnAPQH3w_IG",
+      "image": "16531.jpeg"
   }
 },
 {
