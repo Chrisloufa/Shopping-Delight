@@ -1,0 +1,169 @@
+[{
+  "pk": 1654,
+  "model": "products.product",
+  "fields":{
+      "sku": "1654",
+      "name": "Reebok Men's Frisker LP Shoe",
+      "description": "Reeboks finest white trainer",
+      "price": 53.99,
+      "category": 1,
+      "rating": 4.6,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1654.jpg",
+      "image": "1654.jpg"
+  }
+},
+{
+  "pk": 1653,
+  "model": "products.product",
+  "fields":{
+      "sku": "1653",
+      "name": "Reebok Men's Ventilator Ubiq Shoe",
+      "description": "Reeboks finest brown trainer",
+      "price": 53.99,
+      "category": 1,
+      "rating": 4.7,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1653.jpg",
+      "image": "1653.jpg"
+  }
+},
+{
+  "pk": 1656,
+  "model": "products.product",
+  "fields":{
+      "sku": "1656",
+      "name": "Nike Unisex Odi Day Cap",
+      "description": "Nike Unisex Odi Day Cap for day to day wear",
+      "price": 32.99,
+      "category": 2,
+      "rating": 3.5,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1656.jpg",
+      "image": "1656.jpg"
+  }
+},
+{
+  "pk": 1657,
+  "model": "products.product",
+  "fields":{
+      "sku": "1657",
+      "name": "Reebok Men's White High Wire Shoe",
+      "description": "Reebok Men's White High Wire Shoe",
+      "price": 49.99,
+      "category": 1,
+      "rating": 4,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1657.jpg",
+      "image": "1657.jpg"
+  }
+},
+{
+  "pk": 1658,
+  "model": "products.product",
+  "fields":{
+      "sku": "1658",
+      "name": "Nike Men Windrunner Blue Jacket",
+      "description": "Nike Men Windrunner Blue Jacket",
+      "price": 49.99,
+      "category": 3,
+      "rating": 5,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1658.jpg",
+      "image": "1658.jpg"
+  }
+},
+{
+  "pk": 1662,
+  "model": "products.product",
+  "fields":{
+      "sku": "1662",
+      "name": "Nike Men Blue Windrunner Jacket",
+      "description": "Nike Men Blue Windrunner Jacket",
+      "price": 67.99,
+      "category": 3,
+      "rating": 5,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1662.jpg",
+      "image": "1662.jpg"
+  }
+},
+{
+  "pk": 1668,
+  "model": "products.product",
+  "fields":{
+      "sku": "1668",
+      "name": "Reebok Men Playdry Full Sleeved T-shirt Red",
+      "description": "Reebok Men Playdry Full Sleeved T-shirt Red",
+      "price": 54.99,
+      "category": 4,
+      "rating": 5,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1668.jpg",
+      "image": "1668.jpg"
+  }
+},
+{
+  "pk": 1670,
+  "model": "products.product",
+  "fields":{
+      "sku": "1670",
+      "name": "Reebok Men Green Polo T-shirt",
+      "description": "Reebok Men Green Polo T-shirt",
+      "price": 34.99,
+      "category": 4,
+      "rating": 3,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1670.jpg",
+      "image": "1670.jpg"
+  }
+},
+{
+  "pk": 1671,
+  "model": "products.product",
+  "fields":{
+      "sku": "1671",
+      "name": "Reebok Men Black Polo T-shirt",
+      "description": "Reebok Men Black Polo T-shirt",
+      "price": 34.99,
+      "category": 4,
+      "rating": 3,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1671.jpg",
+      "image": "1671.jpg"
+  }
+},
+{
+  "pk": 1673,
+  "model": "products.product",
+  "fields":{
+      "sku": "1673",
+      "name": "Reebok Mens Lagoon Black T-shirt",
+      "description": "Reebok Mens Lagoon Black T-shirt",
+      "price": 34.99,
+      "category": 4,
+      "rating": 5,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1673.jpg",
+      "image": "1673.jpg"
+  }
+},
+{
+  "pk": 1678,
+  "model": "products.product",
+  "fields":{
+      "sku": "1678",
+      "name": "ADIDAS Originals Unisex Green Dial Watch ADH2545",
+      "description": "ADIDAS Originals Unisex Green Dial Watch ADH2545",
+      "price": 62.99,
+      "category": 5,
+      "rating": 5,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1678.jpg",
+      "image": "1678.jpg"
+  }
+},
+{
+  "pk": 1689,
+  "model": "products.product",
+  "fields":{
+      "sku": "1689",
+      "name": "Reebok Men Blue Polo T-shirt",
+      "description": "Reebok Men Blue Polo T-shirt",
+      "price": 32.99,
+      "category": 4,
+      "rating": 2,
+      "image_url": "file:///Users/chris/Downloads/Coding/Project%20Portfolio%205/images/Shopping_delight/1689.jpg",
+      "image": "1689.jpg"
+  }
+}
+]
