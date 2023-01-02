@@ -19,6 +19,7 @@ import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +29,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'cjm2k9123')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -43,13 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'cloudinary_storage',
-    'cloudinary',
     'home',
     'products',
     'bag',
@@ -71,6 +73,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            TEMPLATES_DIR,
             os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
@@ -175,3 +178,5 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
