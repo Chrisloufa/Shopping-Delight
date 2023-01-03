@@ -17,6 +17,9 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+if os.path.exists("env.py"):
+    import env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
@@ -55,6 +58,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'bag',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -117,10 +121,12 @@ WSGI_APPLICATION = 'shopping_delight.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
+    print('In POSTRGRES')
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
+    print('In SQLITE')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -173,6 +179,12 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 FREE_DELIVERY_THRESHOLD = 20
 STANDARD_DELIVERY_PERCENTAGE = 10
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'chrisloufa',
+    'API_KEY': '336376663713585',
+    'API_SECRET': 'wU3hd5qlf6I8VZAmCbozTpvoQ5k',
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
