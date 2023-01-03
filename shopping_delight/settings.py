@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'cjm2k9123')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = True
+DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -89,6 +89,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.csrf',
+                'django.template.context_processors.request',
             ],
         },
     },
