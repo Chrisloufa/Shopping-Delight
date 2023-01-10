@@ -50,41 +50,72 @@ var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function (ev) {
   ev.preventDefault();
-  // If the client secret was rendered server-side as a data-secret attribute
-  // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
-  card.update({
-    'disabled': true
-  });
+  card.update({'disabled': true});
   $('#submit-button').attr('disabled', true);
-  stripe.confirmCardPayment(clientSecret, {
-    payment_method: {
-      card: card,
-    }
-  }).then(function (result) {
-    if (result.error) {
-      var errorDiv = document.getElementById("card-errors");
-      // Show error to your customer (for example, insufficient funds)
-      var html = `
+
+  var saveInfo = Boolean($('#id-save-info').attr('checked'));
+  // From using {% csrf_token %} in the form
+  var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+  var postData = {
+    'csrfmiddlewaretoken': csrfToken,
+    'client_secret': clientSecret,
+    'save_info': saveInfo,
+  };
+  var url = '/checkout/cache_checkout_data/';
+
+  $.post(url, postData).done(function() {
+    stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          name: $.trim(form.full_name.value),
+          phone: $.trim(form.phone_number.value),
+          email: $.trim(form.email.value),
+          address: {
+            line1: $.trim(form.street_address1.value),
+            line2: $.trim(form.street_address2.value),
+            city: $.trim(form.town_or_city.value),
+            country: $.trim(form.country.value),
+            state: $.trim(form.county.value),
+          }
+        }
+      },
+      shipping: {
+        name: $.trim(form.full_name.value),
+        phone: $.trim(form.phone_number.value),
+        address: {
+          line1: $.trim(form.street_address1.value),
+          line2: $.trim(form.street_address2.value),
+          city: $.trim(form.town_or_city.value),
+          country: $.trim(form.country.value),
+          postal_code: $.trim(form.postcode.value),
+          state: $.trim(form.county.value),
+        }
+      },
+    }).then(function (result) {
+      if (result.error) {
+        var errorDiv = document.getElementById("card-errors");
+        // Show error to your customer (for example, insufficient funds)
+        var html = `
             <p class="icon" role="alert">
             <i class="fa-solid fa-circle-xmark"></i>
             </p>
             <p>${result.error.message}</p>
         `;
-      $(errorDiv).html(html);
-      card.update({
-        'disabled': false
-      });
-      $('#submit-button').attr('disabled', false);
-    } else {
-      // The payment has been processed!
-      if (result.paymentIntent.status === 'succeeded') {
-        form.submit();
-        // Show a success message to your customer
-        // There's a risk of the customer closing the window before callback
-        // execution. Set up a webhook or plugin to listen for the
-        // payment_intent.succeeded event that handles any business critical
-        // post-payment actions.
+        $(errorDiv).html(html);
+        card.update({
+          'disabled': false
+        });
+        $('#submit-button').attr('disabled', false);
+      } else {
+        // The payment has been processed!
+        if (result.paymentIntent.status === 'succeeded') {
+          form.submit();
+        }
       }
-    }
-  });
+    });
+  }).fail(function () {
+    // just reload the page, the error will be in django messages
+    location.reload();
+  })
 });
