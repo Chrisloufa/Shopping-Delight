@@ -78,7 +78,7 @@ form.addEventListener('submit', function (ev) {
     } else {
       // The payment has been processed!
       if (result.paymentIntent.status === 'succeeded') {
-        form.onsubmit();
+        form.submit();
         // Show a success message to your customer
         // There's a risk of the customer closing the window before callback
         // execution. Set up a webhook or plugin to listen for the
