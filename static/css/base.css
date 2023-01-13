@@ -257,3 +257,9 @@ a.category-badge>span.badge:hover {
     background-color: #beb5b1a6;
     border-radius: 2px;
 }
+
+/* login */
+
+.login {
+    background-color: white;
+}
