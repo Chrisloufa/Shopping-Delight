@@ -260,11 +260,11 @@ a.category-badge>span.badge:hover {
 
 /* login */
 
-.form-control {
+.login-input {
     width: 50%;
 }
 
-.container {
+.signin-container {
     background-color: white;
     width: 50%;
 }
