@@ -1,3 +1,9 @@
 .carousel {
-    height: 0vh;
+    background: none;
+    height: 0vh !important;
+}
+
+body {
+    background: none;
+    background-color: #eee;
 }

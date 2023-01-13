@@ -260,6 +260,15 @@ a.category-badge>span.badge:hover {
 
 /* login */
 
-.login {
+.form-control {
+    width: 50%;
+}
+
+.container {
     background-color: white;
+    width: 50%;
+}
+
+.login-body {
+    background-color: #eee;
 }
