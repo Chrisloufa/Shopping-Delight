@@ -32,6 +32,16 @@
   margin-bottom: 24px;
 }
 
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
 /* Buttons and links */
 button {
   background: #5469d4;
