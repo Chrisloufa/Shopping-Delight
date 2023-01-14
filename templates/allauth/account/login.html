@@ -16,32 +16,10 @@
 
   <div class="container signin-container mt-4">
 
-    <h1 class="text-center">{% trans "SIGN IN" %}</h1>
+    <hr>
+    <h1 class="text-center font-weight-bold sign-in-bt">{% trans "SIGN IN" %}</h1>
+    <hr>
 
-
-    {% get_providers as socialaccount_providers %}
-
-    {% if socialaccount_providers %}
-    <p class="text-center">{% blocktrans with site.name as site_name %}Please sign in with one
-      of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-      for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-    <div class="socialaccount_ballot">
-
-      <ul class="socialaccount_providers">
-        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-      </ul>
-
-      <div class="login-or">{% trans 'or' %}</div>
-
-    </div>
-
-    {% include "socialaccount/snippets/login_extra.html" %}
-
-    {% else %}
-    <p>{% blocktrans %}If you have not created an account yet, then please
-      <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-    {% endif %}
 
     <form class="login" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
@@ -84,7 +62,7 @@
           </div>
         </div>
 
-        <div class="col">
+        <div class="col d-flex justify-content-center">
           <!-- Simple link -->
           <a href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </div>
@@ -92,13 +70,23 @@
 
       <button type="submit" class="btn btn-primary btn-block mb-4">{% trans "Sign In" %}</button>
 
+      <!-- Social Media Login-->
+
+      <button class="btn btn-outline-info">
+        <a href="{% provider_login_url 'google'%}?next=/">
+            <i class="fab fa-google"></i>
+            Login with Google
+        </a>
+    </button>
+
       <!-- Register buttons -->
-      <div class="text-center">
+      <div class="text-center register-btn">
         <p>Not a member? <a href="{{ signup_url }}">Register</a></p>
         <p>or sign up with:</p>
-        <button type="submit" class="btn btn-link btn-floating mx-1" href="http://www.facebook.com">
-          <i class="fab fa-facebook-f" href="http://www.facebook.com"></i>
+        <button type="button" class="btn btn-link btn-floating mx-1" href="#facebook" target="_blank">
+          <i class="fab fa-facebook-f"></i>
         </button>
+        
 
         <button type="button" class="btn btn-link btn-floating mx-1">
           <i class="fab fa-google"></i>

@@ -272,3 +272,11 @@ a.category-badge>span.badge:hover {
 .login-body {
     background-color: #eee;
 }
+
+.sign-in-bt {
+    padding-top: 10px;
+}
+
+.register-btn {
+    padding-bottom: 10px;
+}
