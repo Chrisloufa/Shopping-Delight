@@ -17,38 +17,13 @@
   <div class="container signin-container mt-4">
 
     <hr>
-    <h1 class="text-center font-weight-bold sign-in-bt">{% trans "SIGN IN" %}</h1>
+    <h2 class="text-center font-weight-bold sign-in-bt">{% trans "SIGN IN" %}</h2>
     <hr>
 
 
     <form class="login" method="POST" action="{% url 'account_login' %}">
       {% csrf_token %}
-
-      <!-- Email input -->
-      <div>
-        <div class="field">
-          <div class="form-outline d-flex justify-content-center">
-            <label class="form-label" for="form2Example1">Login:</label>
-          </div>
-          <div class="form-outline mb-4 d-flex justify-content-center">
-            <input type="text" id="form2Example1" class="form-control login-input" name="login" placeholder="Username or Email" />
-          </div>
-
-
-          <!-- Password input -->
-          <div class="field">
-            <div class="form-outline d-flex justify-content-center">
-              <label class="form-label" for="form2Example2">Password:</label>
-            </div>
-            <div class="form-outline mb-4 d-flex justify-content-center">
-              <input type="password" id="form2Example2" class="form-control login-input" name="password" placeholder="Password" />
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
+      {{ form|crispy }}
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
