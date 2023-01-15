@@ -3,6 +3,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -78,7 +79,7 @@
                 <br>
                 <hr>
                 <h2 class="logo-font my-5">My Wishlist</h2>
-                <a href="{% url 'wishlist' %}" class="btn btn-outline-black rounded-0 my-2">
+                <a href="" class="btn btn-outline-black rounded-0 my-2">
                     <span class="text-uppercase">View my Wishlist</span>
                 </a>
                 <hr>
@@ -87,6 +88,7 @@
             </div>
         </div>
     </div>
+    {{ profile }}
 {% endblock %}
 
 {% block postloadjs %}
