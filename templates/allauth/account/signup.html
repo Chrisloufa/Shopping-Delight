@@ -18,56 +18,7 @@
 
   <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
-
-    <!-- Email -->
-
-    <div class="field">
-      <div class="form-outline d-flex justify-content-center">
-        <label class="form-label" for="form2Example2">E-mail:</label>
-      </div>
-      <div class="form-outline mb-4 d-flex justify-content-center">
-        <input type="email" required id="id_email" class="form-control signup-input" name="email" placeholder="Email" />
-      </div>
-
-      <div class="form-outline d-flex justify-content-center">
-        <label class="form-label" for="form2Example2">E-mail (again):</label>
-      </div>
-      <div class="form-outline mb-4 d-flex justify-content-center">
-        <input type="email" required id="id_email2" class="form-control signup-input" name="email2"
-          placeholder="Email confirmation" />
-      </div>
-
-      <!-- Username -->
-
-      <div class="form-outline d-flex justify-content-center">
-        <label class="form-label" for="form2Example2">Username:</label>
-      </div>
-      <div class="form-outline mb-4 d-flex justify-content-center">
-        <input type="text" required id="id_username" class="form-control signup-input" name="username" minlength="4"
-          maxlength="150" placeholder="Username" />
-      </div>
-
-      <!-- Password -->
-
-
-      <div class="form-outline d-flex justify-content-center">
-        <label class="form-label" for="form2Example2">Password:</label>
-      </div>
-      <div class="form-outline mb-4 d-flex justify-content-center">
-        <input type="password" required id="id_password1" class="form-control signup-input" name="password1"
-          placeholder="Password" />
-      </div>
-
-      <div class="form-outline d-flex justify-content-center">
-        <label class="form-label" for="form2Example2">Password (again):</label>
-      </div>
-      <div class="form-outline mb-4 d-flex justify-content-center">
-        <input type="password" required id="id_password2" class="form-control signup-input" name="password2"
-          placeholder="Password" />
-      </div>
-
-    </div>
-
+    {{ form|crispy }}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
