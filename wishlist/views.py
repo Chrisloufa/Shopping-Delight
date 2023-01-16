@@ -24,7 +24,7 @@ def get_wishlist(request):
 
     print(wishlist)
     return render(request, 'wishlist/wishlist.html', context=context)
-    
+
 
 @login_required
 def add_to_wishlist(request, product_id):

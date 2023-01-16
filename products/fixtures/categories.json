@@ -1,50 +1,49 @@
-[
-    {
-      "pk": 1,
-      "model": "products.category",
-      "fields": {
-        "name": "shoes",
-        "friendly_name": "Shoes"
-      }
-    },
-    {
-        "pk": 2,
-        "model": "products.category",
-        "fields": {
-          "name": "hats",
-          "friendly_name": "Hats"
-        }
-      },
-      {
-        "pk": 3,
-        "model": "products.category",
-        "fields": {
-          "name": "jackets",
-          "friendly_name": "Jackets"
-        }
-      },
-      {
-        "pk": 4,
-        "model": "products.category",
-        "fields": {
-          "name": "tshirts",
-          "friendly_name": "T-shirts"
-        }
-      },
-      {
-        "pk": 5,
-        "model": "products.category",
-        "fields": {
-          "name": "watches",
-          "friendly_name": "Watches"
-        }
-      },
-      {
-        "pk": 6,
-        "model": "products.category",
-        "fields": {
-          "name": "clearance",
-          "friendly_name": "Clearance"
-        }
-      }
+[{
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+      "name": "shoes",
+      "friendly_name": "Shoes"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+      "name": "hats",
+      "friendly_name": "Hats"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "jackets",
+      "friendly_name": "Jackets"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+      "name": "tshirts",
+      "friendly_name": "T-shirts"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+      "name": "watches",
+      "friendly_name": "Watches"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.category",
+    "fields": {
+      "name": "clearance",
+      "friendly_name": "Clearance"
+    }
+  }
 ]

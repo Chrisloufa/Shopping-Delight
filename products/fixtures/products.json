@@ -1,7 +1,7 @@
 [{
-  "pk": 16531,
-  "model": "products.product",
-  "fields":{
+    "pk": 16531,
+    "model": "products.product",
+    "fields": {
       "sku": "1654",
       "name": "Reebok Men's Frisker LP Shoe",
       "description": "Reeboks finest white trainer",
@@ -10,12 +10,12 @@
       "rating": 4.6,
       "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRV-a8PSlgv9ZucmEYFO-s9Tt4wKDSxHqxzvmEJmmnAPQH3w_IG",
       "image": "16531.jpeg"
-  }
-},
-{
-  "pk": 99999,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 99999,
+    "model": "products.product",
+    "fields": {
       "sku": "1654",
       "name": "Reebok Men's Frisker LP Shoe",
       "description": "Reeboks finest white trainer",
@@ -24,12 +24,12 @@
       "rating": 4.6,
       "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRV-a8PSlgv9ZucmEYFO-s9Tt4wKDSxHqxzvmEJmmnAPQH3w_IG",
       "image": "16531.jpeg"
-  }
-},
-{
-  "pk": 16541,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16541,
+    "model": "products.product",
+    "fields": {
       "sku": "1653",
       "name": "Reebok Men's Ventilator Ubiq Shoe",
       "description": "Reeboks finest brown trainer",
@@ -38,12 +38,12 @@
       "rating": 4.7,
       "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS-3mx5gtkQO4CQ6O_pIAazNPB74tSD815mw0tQnpfPWST55eWC",
       "image": "16541.jpeg"
-  }
-},
-{
-  "pk": 16561,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16561,
+    "model": "products.product",
+    "fields": {
       "sku": "16561",
       "name": "Nike Unisex Odi Day Cap",
       "description": "Nike Unisex Odi Day Cap for day to day wear",
@@ -52,12 +52,12 @@
       "rating": 3.5,
       "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWWsui5GZUtbPAsoEM8suxBH9FlPMYzJ3Bq6Tz3TGbv8gZ7BpJ",
       "image": "16561.jpeg"
-  }
-},
-{
-  "pk": 16571,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16571,
+    "model": "products.product",
+    "fields": {
       "sku": "16571",
       "name": "Reebok Men's White High Wire Shoe",
       "description": "Reebok Men's White High Wire Shoe",
@@ -66,12 +66,12 @@
       "rating": 4,
       "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRxH4KIZ1PGGcSoAEJ-x69ecOZczsNsU7k9pkRL9Sqp3imm_POK",
       "image": "16571.jpeg"
-  }
-},
-{
-  "pk": 16581,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16581,
+    "model": "products.product",
+    "fields": {
       "sku": "16581",
       "name": "Nike Men Windrunner Blue Jacket",
       "description": "Nike Men Windrunner Blue Jacket",
@@ -80,12 +80,12 @@
       "rating": 5,
       "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSXG6Suzn71W6PcP071nqz4MwccECrluyLfbYdd2RsAmP0LiL-C",
       "image": "16581.jpeg"
-  }
-},
-{
-  "pk": 16621,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16621,
+    "model": "products.product",
+    "fields": {
       "sku": "16621",
       "name": "Nike Men Blue Windrunner Jacket",
       "description": "Nike Men Blue Windrunner Jacket",
@@ -94,12 +94,12 @@
       "rating": 5,
       "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS66WAllBNKNHLG2U7MOBF8H5vv96zpZk3Yrx6vUItCh4RSNXUM",
       "image": "16621.jpeg"
-  }
-},
-{
-  "pk": 16681,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16681,
+    "model": "products.product",
+    "fields": {
       "sku": "16681",
       "name": "Reebok Men Playdry Full Sleeved T-shirt Red",
       "description": "Reebok Men Playdry Full Sleeved T-shirt Red",
@@ -108,12 +108,12 @@
       "rating": 5,
       "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT5Sn3V93sHH8Auyllpk5cuIibM8NKiKYAvHhhHKSXwgLxPOn8I",
       "image": "16681.jpeg"
-  }
-},
-{
-  "pk": 16701,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16701,
+    "model": "products.product",
+    "fields": {
       "sku": "16701",
       "name": "Reebok Men Green Polo T-shirt",
       "description": "Reebok Men Green Polo T-shirt",
@@ -122,12 +122,12 @@
       "rating": 3,
       "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSkOXOPuo5Vwx82gYkBmjLqHUgQdk7i_oVlXfNANeWN14p7v5ii",
       "image": "16701.jpeg"
-  }
-},
-{
-  "pk": 16711,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16711,
+    "model": "products.product",
+    "fields": {
       "sku": "16711",
       "name": "Reebok Men Black Polo T-shirt",
       "description": "Reebok Men Black Polo T-shirt",
@@ -136,12 +136,12 @@
       "rating": 3,
       "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTWcDsrIQOMxmuyRyUG50TvbwUcb2MBC8usv5f5c_FoNvqp6s4c",
       "image": "16711.jpeg"
-  }
-},
-{
-  "pk": 16731,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16731,
+    "model": "products.product",
+    "fields": {
       "sku": "16731",
       "name": "Reebok Mens Lagoon Black T-shirt",
       "description": "Reebok Mens Lagoon Black T-shirt",
@@ -150,12 +150,12 @@
       "rating": 5,
       "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQHkGfZ97w2VSokkH9ZXgI-XjYkxlcUNy79H5HBO56kpDL4U0dH",
       "image": "16731.jpeg"
-  }
-},
-{
-  "pk": 16781,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16781,
+    "model": "products.product",
+    "fields": {
       "sku": "16781",
       "name": "ADIDAS Originals Unisex Green Dial Watch ADH2545",
       "description": "ADIDAS Originals Unisex Green Dial Watch ADH2545",
@@ -164,12 +164,12 @@
       "rating": 5,
       "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfW0lPDI9hkphibxVm9SwkLfgnYKLCyYtNBvPJv9IF1IsT3mNd",
       "image": "16781.jpeg"
-  }
-},
-{
-  "pk": 16891,
-  "model": "products.product",
-  "fields":{
+    }
+  },
+  {
+    "pk": 16891,
+    "model": "products.product",
+    "fields": {
       "sku": "16891",
       "name": "Reebok Men Blue Polo T-shirt",
       "description": "Reebok Men Blue Polo T-shirt",
@@ -178,6 +178,6 @@
       "rating": 2,
       "image_url": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR0j2r9mHvT5zu869zz-0DDeP3Ff43rnAu4uLyDusU8XxL8p_Iu",
       "image": "16891.jpeg"
+    }
   }
-}
 ]

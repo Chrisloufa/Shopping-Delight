@@ -12,6 +12,7 @@ def view_bag(request):
 
     return render(request, 'bag/bag.html')
 
+
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
@@ -22,7 +23,8 @@ def add_to_bag(request, item_id):
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
-        messages.info(request, f'Updated quantity of {product.name} to {bag[item_id]}')
+        messages.info(
+            request, f'Updated quantity of {product.name} to {bag[item_id]}')
     else:
         bag[item_id] = quantity
         messages.success(request, f'Added {product.name} to your bag.')
@@ -30,7 +32,6 @@ def add_to_bag(request, item_id):
     request.session['bag'] = bag
     print(request.session['bag'])
     return redirect(redirect_url)
-
 
 
 def adjust_bag(request, item_id):

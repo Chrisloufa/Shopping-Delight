@@ -1,6 +1,8 @@
 # Shopping Delight
 
-Shopping delight is a retail e-commerce site to allow users to easily browse different clothing products with categorisation to make the process smoother. 
+![Responsive](media/readme/amiresponsive.png)
+
+Shopping delight is a retail e-commerce site to allow users to easily browse different clothing products with categorisation or even through personalized searches to make the process smoother. Users are able to sign up to have individual profiles and save their user information.
 
 The site is fully responsive and designed in a simplistic and easy to navigate manner. It has been coded using HTML, CSS, JavaScript, Python and Django and the Bootstrap frameworks.
 
@@ -43,6 +45,17 @@ And the owner of the site will be able to add:
 # WireFrames
 
 ## Desktop Wireframes
+
+## Mobile Wireframes
+
+<details>
+<summary>Desktop Wireframes - Click Here:</summary>
+<img src="media/readme/wireframes/mobile-index.png" width="500">
+<img src="media/images/desktopsignin.png" width="500">
+<img src="media/images/desktopsignup.png" width="500">
+</details>
+
+
 
 ### Homepage
 

@@ -5,7 +5,6 @@ from profiles.models import UserProfile
 
 
 def wishlist_contents(request):
-
     """ A view to return the wishlist page """
     wishlist = None
 
