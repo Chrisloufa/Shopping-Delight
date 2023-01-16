@@ -38,5 +38,13 @@
           "name": "watches",
           "friendly_name": "Watches"
         }
+      },
+      {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+          "name": "clearance",
+          "friendly_name": "Clearance"
+        }
       }
 ]

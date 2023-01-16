@@ -13,6 +13,20 @@
   }
 },
 {
+  "pk": 99999,
+  "model": "products.product",
+  "fields":{
+      "sku": "1654",
+      "name": "Reebok Men's Frisker LP Shoe",
+      "description": "Reeboks finest white trainer",
+      "price": 53.99,
+      "category": 6,
+      "rating": 4.6,
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRV-a8PSlgv9ZucmEYFO-s9Tt4wKDSxHqxzvmEJmmnAPQH3w_IG",
+      "image": "16531.jpeg"
+  }
+},
+{
   "pk": 16541,
   "model": "products.product",
   "fields":{
