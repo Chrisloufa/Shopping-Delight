@@ -48,7 +48,7 @@ body {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
+    background: #007bff;
     color: white !important;
 }
 
@@ -369,6 +369,10 @@ section {
     background-color: #dc3545;
     border-color: #dc3545;
     border-radius: 0;
+}
+
+.fa-heart {
+    color: red;
 }
 
 /* -------------------------------- Media Queries */

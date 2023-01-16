@@ -24,28 +24,27 @@
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10 order-lg-last mb-5">
             <div>
-                <hr>
-                <p>You have: <strong>{{ wishlist.products.all.count }}</strong> items added to your wishlish</p>
-                <hr>
+            {% if wishlist.count %}
+                {% if wishlist.count == 1 %}
+                    <p class="text-muted text-center">You have {{ wishlist.count }} item in your Wishlist</p>
+                {% else %}
+                    <p class="text-muted text-center">You have {{ wishlist.count }} items in your Wishlist</p>
+                {% endif %}
                 <div class="d-block d-md-none">
                     {% for product in wishlist.products.all %}
                     <p><strong>{{ product.name }}</strong></p>
-                    <div class="row mx-1 my-1">
-                        <div class="col-12 col-sm-6 mb-2">
-                            {% include "wishlist/wishlist-image.html" %}
+                        <div class="row mx-1 my-1">
+                            <div class="col-12 col-sm-6 mb-2">
+                                {% include "wishlist/wishlist-image.html" %}
+                            </div>
+                            <div class="col-12 col-sm-6 mb-2">
+                                <p><strong> £{{ product.price }}</strong></p>
+                            </div>
                         </div>
-                        <div class="col-12 col-sm-6 mb-2">
-                            <p><strong> £{{ product.price }}</strong></p>
+                        <div class="center">
+                            {% include "wishlist/wishlist-buttons-mobile.html" %}
                         </div>
-                    </div>
-                    <div class="center">
-                        {% include "wishlist/wishlist-buttons-mobile.html" %}
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <hr>
-                        </div>
-                    </div>
+                        <div class="row"><div class="col"><hr></div></div>
                     {% endfor %}
                 </div>
                 <div class="table-responsive rounded d-none d-md-block">
@@ -59,29 +58,30 @@
                             </tr>
                         </thead>
                         {% for product in wishlist.products.all %}
-                        <tr>
-                            <td class="p-3 w-25">
-                                {% include "wishlist/wishlist-image.html" %}
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0"><strong>{{ product.name }}</strong></p>
-                            </td>
-                            <td class="py-3">
-                                <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
-                            </td>
-                            <td class="py-3">
-                                {% include "wishlist/wishlist-buttons.html" %}
-                            </td>
-                        </tr>
-                        {% empty %}
-                        <p class="text-center">Your Wishlist is empty.</p>
+                            <tr>
+                                <td class="p-3 w-25">
+                                    {% include "wishlist/wishlist-image.html" %}
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0"><strong>{{ product.name }}</strong></p>
+                                </td>
+                                <td class="py-3">
+                                    <p class="lead mb-0 font-weight-bold">£{{ product.price }}</p>
+                                </td>
+                                <td class="py-3">
+                                    {% include "wishlist/wishlist-buttons.html" %}
+                                </td>
+                            </tr>
                         {% endfor %}
                     </table>
                 </div>
-                <br>
-                <p class="text-center">Take a look at our
+            {% else %}
+            <br>
+            <p class="text-center">Your Wishlist is empty.</p>
+                <p class="text-center">Take a look at our 
                     <a href="{% url 'products' %}" class="text-uppercase"><strong>products page</strong></a>
                 </p>
+            {% endif %}
             </div>
         </div>
     </div>
@@ -92,6 +92,11 @@
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
     </a>
 </div>
+{% for product in wishlist.products.all %}
+{{ product.name }}
+{{ product.price }}
+{% endfor %}
+{% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
@@ -100,5 +105,4 @@
         window.scrollTo(0, 0)
     })
 </script>
-{% endblock %}
 {% endblock %}
