@@ -53,7 +53,7 @@
   <!-- Your custom styles (optional) -->
   <link href="static/css/style.css" rel="stylesheet">
   <link href="static/css/base.css" rel="stylesheet">
-  <style type="text/css">
+  <style>
     .carousel {
       height: 80vh;
       padding-top: 11% !important;
@@ -127,22 +127,22 @@
           <!-- Wishlist -->
 
           {% if request.user.is_authenticated %}
-              <li class="list-inline-item">
-                <a class="text-black nav-link" href="{% url 'wishlist' %}">
-                  <div class="text-center">
-                    <div class="my-0">
-                      {% if wishlist %}
-                      <div><i class="fas fa-heart"></i></div>
-                      Wishlist
-                      {% else %}
-                      <div><i class="fa fa-heart"></i></div>
-                      Wishlist
-                      {% endif %}
-                    </div>
-                  </div>
-                </a>
-              </li>
-            {% endif %}
+          <li class="list-inline-item">
+            <a class="text-black nav-link" href="{% url 'wishlist' %}">
+              <div class="text-center">
+                <div class="my-0">
+                  {% if wishlist %}
+                  <div><i class="fas fa-heart"></i></div>
+                  Wishlist
+                  {% else %}
+                  <div><i class="fa fa-heart"></i></div>
+                  Wishlist
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          </li>
+          {% endif %}
 
           <li class="list-inline-item">
             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
@@ -235,9 +235,9 @@
       </div>
       <!--/Third slide-->
       <!-- Scroll down button -->
-      <section id="section01" class="demo">
+      <div id="section01" class="demo">
         <a href="#section02"><span></span></a>
-      </section>
+      </div>
     </div>
     <!--/.Slides-->
 
@@ -331,10 +331,10 @@
   {% endif %}
 
   {% block postloadjs %}
-  <script type="text/javascript">
+  <script>
     $('.toast').toast('show');
   </script>
-  <script type="text/javascript">
+  <script>
     $(function () {
       $('a[href*=#]').on('click', function (e) {
         e.preventDefault();
