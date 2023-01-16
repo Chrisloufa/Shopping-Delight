@@ -95,6 +95,32 @@
                                             value="Add to Bag">
                                     </span>
                                 </div>
+
+                                <!-- Wishlist -->
+
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            {% if request.user.is_authenticated %}
+                                {% if check_wishlist.count > 0 %}
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col text-center my-5">
+                                                <p class="text-left"><strong>{{ product.name }}</strong> in your <a href="{% url 'wishlist' %}">Wishlist</a>.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="col-12">
+                                        <a href="{% url 'add_to_wishlist' product.id %}" class="btn btn-outline-black rounded-0 mt-5">
+                                            <span class="icon">
+                                                <i class="far fa-heart"></i>
+                                            </span>
+                                            <span class="text-uppercase">Add to Wishlist</span>
+                                        </a> 
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+
                                 <div class="shop-btn text-uppercase">
                                     <span class="keep-shopping">
                                         <i class="fas fa-chevron-left"></i>
