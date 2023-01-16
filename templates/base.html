@@ -54,17 +54,18 @@
   <link href="static/css/style.css" rel="stylesheet">
   <link href="static/css/base.css" rel="stylesheet">
   <style type="text/css">
-
     .carousel {
       height: 80vh;
       padding-top: 11% !important;
     }
+
     @media (max-width: 740px) {
 
       .carousel {
         height: 100vh;
       }
     }
+
     @media (min-width: 800px) and (max-width: 850px) {
       .carousel {
         height: 100vh;
@@ -123,7 +124,8 @@
             </div>
           </li>
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}" href="{% url 'view_bag' %}">
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
+              href="{% url 'view_bag' %}">
               <div class="text-center">
                 <div>
                   <i class="fas fa-shopping-bag fa-lg icon"></i>
@@ -175,7 +177,7 @@
     {% if request.path == "/" or request.path == "/home" %}
     <link href="static/css/index.css" rel="stylesheet">
     {% endif %}
-    
+
 
     <!--Indicators-->
     <ol class="carousel-indicators">
@@ -211,10 +213,10 @@
         </div>
       </div>
       <!--/Third slide-->
-                    <!-- Scroll down button -->
-                    <section id="section01" class="demo">
-                      <a href="#section02"><span></span></a>
-                    </section>
+      <!-- Scroll down button -->
+      <section id="section01" class="demo">
+        <a href="#section02"><span></span></a>
+      </section>
     </div>
     <!--/.Slides-->
 
@@ -265,7 +267,8 @@
     <!--Copyright-->
     <div class="footer-copyright pb-3">
       © 2022 Copyright:
-      <a href="https://8000-chrisloufa-shoppingdeli-psvuk7tuwsn.ws-eu82.gitpod.io/" target="_blank"> Shopping-Delight.com </a>
+      <a href="https://8000-chrisloufa-shoppingdeli-psvuk7tuwsn.ws-eu82.gitpod.io/" target="_blank">
+        Shopping-Delight.com </a>
     </div>
     <!--/.Copyright-->
 
@@ -288,36 +291,38 @@
   </script>
 
 
-{% if messages %}
-<div class="message-container">
+  {% if messages %}
+  <div class="message-container">
     {% for message in messages %}
-        {% with message.level as level %}
-            {% if level == 40 %}
-                {% include 'includes/toasts/toast_error.html' %}
-            {% elif level == 30 %}
-                {% include 'includes/toasts/toast_warning.html' %}
-            {% elif level == 25 %}
-                {% include 'includes/toasts/toast_success.html' %}
-            {% else %}
-                {% include 'includes/toasts/toast_info.html' %}
-            {% endif %}
-        {% endwith %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'includes/toasts/toast_error.html' %}
+    {% elif level == 30 %}
+    {% include 'includes/toasts/toast_warning.html' %}
+    {% elif level == 25 %}
+    {% include 'includes/toasts/toast_success.html' %}
+    {% else %}
+    {% include 'includes/toasts/toast_info.html' %}
+    {% endif %}
+    {% endwith %}
     {% endfor %}
-</div>
-{% endif %}
+  </div>
+  {% endif %}
 
   {% block postloadjs %}
   <script type="text/javascript">
     $('.toast').toast('show');
-</script>
-<script type="text/javascript">
-    $(function() {
-  $('a[href*=#]').on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-  });
-});
-</script>
+  </script>
+  <script type="text/javascript">
+    $(function () {
+      $('a[href*=#]').on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+          scrollTop: $($(this).attr('href')).offset().top
+        }, 500, 'linear');
+      });
+    });
+  </script>
   {% endblock %}
 
 
