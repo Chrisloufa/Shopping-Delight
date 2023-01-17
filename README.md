@@ -420,5 +420,13 @@ Images sourced from Google
 - More admin/superuser rights from the website itself.
 Quick-Buy options directly from the product pages.
 
+# Credits
+
+- Homepage Carousel](https://azmind.com/bootstrap-carousel-multiple-items/)
+
+- Stack Overflow
+
+- Boutique Ado walkthrough project
+
 
 
