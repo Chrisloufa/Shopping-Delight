@@ -9,6 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Shopping-Delight is a online retail store for clothing rnages">
   {% endblock %}
 
   {% block extra_meta %}
@@ -102,14 +103,13 @@
         <!-- My Account Navigation and Shopping Bag icon with Grand Total -->
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
           <li class="list-inline-item dropdown">
-            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
+            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="text-center">
                 <div><i class="fas fa-user fa-lg icon"></i></div>
                 <p class="my-0 nav-text">My Account</p>
               </div>
             </a>
-            <div class="dropdown-menu border-0">
+            <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
               <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
