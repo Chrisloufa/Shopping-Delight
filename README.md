@@ -344,6 +344,10 @@ Wishlist
 
 </details>
 
+## Manual Testing
+
+<img src="media/readme/manualtesting.png"> 
+
 # Deployment
 
 ## GitHub Pages
