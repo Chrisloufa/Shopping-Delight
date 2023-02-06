@@ -34,6 +34,8 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False,
                                   blank=False, default='')
+    coupon = models.ForeignKey(
+        'Coupon', on_delete=models.SET_NULL, blank=True, null=True)
 
     def _generate_order_number(self):
         """
@@ -53,6 +55,8 @@ class Order(models.Model):
                 settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
+        if self.coupon is not None:
+            self.order_total = self.order_total - self.coupon.amount
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 

@@ -142,3 +142,7 @@ button:disabled {
     min-width: initial;
   }
 }
+
+.coupon1 {
+  flex-wrap: nowrap;
+}
