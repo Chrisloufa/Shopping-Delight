@@ -1,3 +1,5 @@
+"""Checkout Views"""
+import json
 from django.shortcuts import render, redirect, reverse, get_object_or_404, \
     HttpResponse
 from django.views.decorators.http import require_POST, require_http_methods
@@ -5,15 +7,14 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.conf import settings
 
+import stripe
+
 from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
 from .forms import OrderForm, CouponForm
 from .models import Order, OrderLineItem, Coupon
-
-import stripe
-import json
 
 
 @require_POST

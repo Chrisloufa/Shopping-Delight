@@ -10,6 +10,16 @@ from products.models import Product
 from profiles.models import UserProfile
 
 
+class Coupon(models.Model):
+    """Voucher Code Model"""
+    code = models.CharField(max_length=10)
+    amount = models.DecimalField(max_digits=6, decimal_places=2,
+                                 null=False, default=20)
+
+    def __str__(self):
+        return self.code
+
+
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
@@ -94,13 +104,3 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return f'SKU {self.product.sku} on order {self.order.order_number}'
-
-
-class Coupon(models.Model):
-    """Voucher Code Model"""
-    code = models.CharField(max_length=10)
-    amount = models.DecimalField(max_digits=6, decimal_places=2,
-                                 null=False, default=20)
-
-    def __str__(self):
-        return self.code

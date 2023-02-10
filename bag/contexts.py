@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from checkout.models import Coupon
 
 
 def bag_contents(request):
@@ -11,6 +12,13 @@ def bag_contents(request):
     total = 0
     product_count = 0
     bag = request.session.get('bag', {})
+    coupon_id = request.session.get('coupon_id', int())
+
+    try:
+        coupon = Coupon.objects.get(id=coupon_id)
+
+    except Coupon.DoesNotExist:
+        coupon = None
 
     for item_id, quantity in bag.items():
         product = get_object_or_404(Product, pk=item_id)
@@ -31,8 +39,16 @@ def bag_contents(request):
 
     grand_total = delivery + total
 
+    if coupon:
+        grand_total = delivery + total - coupon.amount
+        # stripe_total = round(grand_total * 100)
+    else:
+        grand_total = delivery + total
+        # stripe_total = round(grand_total * 100)
+
     context = {
         'bag_items': bag_items,
+        'coupon': coupon,
         'total': total,
         'product_count': product_count,
         'delivery': delivery,
