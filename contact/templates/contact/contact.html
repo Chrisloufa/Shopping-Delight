@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_title %} - Contact Us{% endblock %}
+
+<!-- I've Kept this page header here as it pushing the Shopping Bag title down
+    below the navigation and delivery banner -->
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- White background overlay div to hide the homepage background image -->
+<div class="overlay"></div>
+<div class="container h-100 faq-container">
+    <div class="row">
+        <div class="col">
+            <!-- Page Header -->
+            <h2 class="logo-font mb-4 mt-4 text-center page-title"><strong>
+                    Contact Clay & Fire Jewellery
+                </strong></h2>
+            <hr class="w-50">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 contact-form">
+            <form method="POST">
+                <!-- Contact Form -->
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nameInput">Name*</label>
+                    <input id ="nameInput" type="text" name="name" class="form-control form-input" Placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlEmail">Email address*</label>
+                    <input type="email" name="email" class="form-control"  id="exampleFormControlEmail"
+                        placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="subjectInput">Subject</label>
+                    <input id="subjectInput" type="text" name="subject" class="form-control form-input" Placeholder="Subject">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message*</label>
+                    <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="6" placeholder="How can we help?"></textarea>
+                </div>
+                <div class="submit-button text-right mb-2">
+                    <button type="submit" id="submit-button" class="btn rounded-0 icon">
+                        <span class="font-weight-bold text-uppercase">Send Message</span>
+                        <span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
