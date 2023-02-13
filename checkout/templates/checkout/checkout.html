@@ -67,7 +67,7 @@
                 <div class="col-12 p-2">
                     <div class="input-group justify-content-center">
                         <p class="coupon-applied">
-                            Coupon Applied: {{ coupon.code }}
+                            Coupon Applied: &nbsp; <p class="font-weight-bold">£{{ coupon.amount }} Off Total</p>
                         </p>
                         <a class="btn m-0 remove-coupon" href="{% url 'delete_coupon' %}" title="Remove Coupon"><i
                                 class="fa-solid fa-xmark"></i></a>
