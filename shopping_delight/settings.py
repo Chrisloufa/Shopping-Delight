@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'cjm2k9123')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
