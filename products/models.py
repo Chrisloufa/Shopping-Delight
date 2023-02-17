@@ -34,11 +34,16 @@ class Product(models.Model):
         return self.name
 
 
-class ProductReview(models.Model):
-    product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, related_name='reviews', on_delete=models.CASCADE)
+class Review(models.Model):
+    """Rating and Review Model"""
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.DecimalField(
+        max_digits=5, decimal_places=2, null=True, blank=False)
+    review = models.TextField(max_length=500, blank=True)
+    status = models.BooleanField(default=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
 
-    content = models.TextField(blank=True, null=True)
-    stars = models.IntegerField()
-
-    date_added = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.review

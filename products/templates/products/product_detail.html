@@ -2,6 +2,7 @@
 {% load static %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'products/css/product.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -142,57 +143,85 @@
     </div>
 </div>
 
-
-<div>
-<p class="text-uppercase">Reviews</p>
-                <div class="reviews-wrapper">
-                    {% for review in product.reviews.all %}
-                        <div class="notification space-below">
-                            <p>
-                                <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
-                                <strong>Stars: </strong>{{ review.stars }}
-                            </p>
-        
-                            {{ review.content }}
-                        </div>
-                    {% empty %}
-                        <div class="notification space-below">
-                            No reviews yet...
-                        </div>
-                    {% endfor %}
-                </div>  
-
-<div class="notification space-below">
-    {% if request.user.is_authenticated %}
-        <form method="post" action=".">
+<hr class="w-50 mb-5">
+<div class="row offset-1 review-section">
+    <div class="col-md-6 mt-2">
+        <h4>Leave a Review</h4>
+        {% if user.is_authenticated %}
+        <form action="{% url 'submit_review' product.id %}" method="POST">
             {% csrf_token %}
-
-            <div class="field">
-                <label>Stars</label>
-
-                <div class="container">
-                    <span id="rateMe4"  class="feedback"></span>
-                  </div>
-            </div>
-
-            <div class="field">
-                <label>Content</label>
-
-                <div class="control">
-                    <textarea class="textarea" name="content"></textarea>
+            <div>
+                <!-- Rating functionality & CSS from Rathan Kumar's YouTube Tutorial. Link in README -->
+                <label for="rate">How do you rate this product?</label>
+                <br>
+                <div class="rate">
+                    <input type="radio" name="rating" id="rating10" value="5" required checked="checked"><label for="rating10" title="5"></label>
+                    <input type="radio" name="rating" id="rating9" value="4.5" required><label for="rating9" title="4.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating8" value="4" required><label for="rating8" title="4"></label>
+                    <input type="radio" name="rating" id="rating7" value="3.5" required><label for="rating7" title="3.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating6" value="3" required><label for="rating6" title="3"></label>
+                    <input type="radio" name="rating" id="rating5" value="2.5" required><label for="rating5" title="2.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating4" value="2" required><label for="rating4" title="2"></label>
+                    <input type="radio" name="rating" id="rating3" value="1.5" required><label for="rating3" title="1.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating2" value="1" required><label for="rating2" title="1"></label>
+                    <input type="radio" name="rating" id="rating1" value="0.5" required><label for="rating1" title="0.5" class="half"></label>
                 </div>
             </div>
-
-            <div class="field">
-                <div class="control">
-                    <button class="button is-success">Submit</button>
-                </div>
+            <div>
+                Review:
+                <textarea name="review" id="review" class="form-control review-box" cols="10" rows="5" required></textarea>
             </div>
+            <input type="submit" value="Submit Review" class="btn submit-review">
         </form>
-    {% else %}
-        <p>Please sign in to add review!</p>
-    {% endif %}
-</div>
+        {% else %}
+        <div class="font-italic">
+            You must be logged in to post a review.  
+            <a href="{% url 'account_login' %}" class="icon">Login Here.</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6 mt-2 customer-reviews">
+        <h4>Customer Reviews ({{total_reviews}})</h4>
+        {% for review in reviews %}
+        <article class="box mb-3">
+                <div class="icontext w-100">
+                    <div class="text">
+                        <span class="date text-muted">{{review.created_on}}</span>
+                        <h6 class="mb-1">{{ review.user }}</h6>
+                        <div class="rating-star">
+                            <span>
+                                <i class="fa fa-star{% if review.rating == 0.5 %}-half-o{% elif review.rating < 1 %}-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if review.rating == 1.5 %}-half-o{% elif review.rating < 2 %}-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if review.rating == 2.5 %}-half-o{% elif review.rating < 3 %}-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if review.rating == 3.5 %}-half-o{% elif review.rating < 4 %}-o {% endif %}" aria-hidden="true"></i>
+                                <i class="fa fa-star{% if review.rating == 4.5 %}-half-o{% elif review.rating < 5 %}-o {% endif %}" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <p>
+                        {{review.review}}
+                    </p>
+                </div>
+                {% if request.user == review.user or request.user.is_superuser %}
+                <div class="col text-right del-product">
+                    <a class="text-info" href="{% url 'edit_review' review.id %}">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                    <a class="text-danger" href="{% url 'delete_review' review.id %}">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </div>
+                {% endif %}
+            {% empty %}
+                <div class="font-italic mt-2">
+                    There are currently no reviews to display for this product.
+                </div>
+        </article>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
@@ -200,5 +229,5 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<script src="{% static 'products/ja/rating.js' %}"></script>
+<script src="{% static 'products/js/rating.js' %}"></script>
 {% endblock %}
