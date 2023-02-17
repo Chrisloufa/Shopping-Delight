@@ -37,7 +37,7 @@
                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Rating</small>
-                {% endif %}
+                {% endif %}      
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
                     <a href="{% url 'edit_product' product.id %}">Edit</a> |
@@ -143,9 +143,62 @@
 </div>
 
 
+<div>
+<p class="text-uppercase">Reviews</p>
+                <div class="reviews-wrapper">
+                    {% for review in product.reviews.all %}
+                        <div class="notification space-below">
+                            <p>
+                                <strong>Date: </strong>{{ review.date_added|date:"Y-m-d" }},
+                                <strong>Stars: </strong>{{ review.stars }}
+                            </p>
+        
+                            {{ review.content }}
+                        </div>
+                    {% empty %}
+                        <div class="notification space-below">
+                            No reviews yet...
+                        </div>
+                    {% endfor %}
+                </div>  
+
+<div class="notification space-below">
+    {% if request.user.is_authenticated %}
+        <form method="post" action=".">
+            {% csrf_token %}
+
+            <div class="field">
+                <label>Stars</label>
+
+                <div class="container">
+                    <span id="rateMe4"  class="feedback"></span>
+                  </div>
+            </div>
+
+            <div class="field">
+                <label>Content</label>
+
+                <div class="control">
+                    <textarea class="textarea" name="content"></textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button class="button is-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    {% else %}
+        <p>Please sign in to add review!</p>
+    {% endif %}
+</div>
+</div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script src="{% static 'products/ja/rating.js' %}"></script>
 {% endblock %}
