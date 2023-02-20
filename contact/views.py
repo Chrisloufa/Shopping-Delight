@@ -1,10 +1,8 @@
 """ Contact app views """
-from django.conf import settings
-from django.shortcuts import render, redirect, reverse
-from django.core.mail import send_mail, BadHeaderError
+from django.shortcuts import render
+from django.core.mail import send_mail
 from django.contrib import messages
 from .forms import MessageForm
-from django.http import HttpResponse
 
 
 # Contact view
