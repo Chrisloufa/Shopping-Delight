@@ -1,10 +1,13 @@
+"""Product models"""
 from django.db import models
 from django.contrib.auth.models import User
 
 
 class Category(models.Model):
+    """Category model"""
 
     class Meta:
+        """Removes extra 's' from Model name"""
         verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=254)
@@ -14,10 +17,12 @@ class Category(models.Model):
         return self.name
 
     def get_friendly_name(self):
+        """returns the products friendly name if one"""
         return self.friendly_name
 
 
 class Product(models.Model):
+    """Products model"""
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)

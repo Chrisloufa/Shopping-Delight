@@ -38,7 +38,7 @@
                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Rating</small>
-                {% endif %}      
+                {% endif %}
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
                     <a href="{% url 'edit_product' product.id %}">Edit</a> |
@@ -155,21 +155,32 @@
                 <label for="rate">How do you rate this product?</label>
                 <br>
                 <div class="rate">
-                    <input type="radio" name="rating" id="rating10" value="5" required checked="checked"><label for="rating10" title="5"></label>
-                    <input type="radio" name="rating" id="rating9" value="4.5" required><label for="rating9" title="4.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating8" value="4" required><label for="rating8" title="4"></label>
-                    <input type="radio" name="rating" id="rating7" value="3.5" required><label for="rating7" title="3.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating6" value="3" required><label for="rating6" title="3"></label>
-                    <input type="radio" name="rating" id="rating5" value="2.5" required><label for="rating5" title="2.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating4" value="2" required><label for="rating4" title="2"></label>
-                    <input type="radio" name="rating" id="rating3" value="1.5" required><label for="rating3" title="1.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating2" value="1" required><label for="rating2" title="1"></label>
-                    <input type="radio" name="rating" id="rating1" value="0.5" required><label for="rating1" title="0.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating10" value="5" required checked="checked"><label
+                        for="rating10" title="5"></label>
+                    <input type="radio" name="rating" id="rating9" value="4.5" required><label for="rating9" title="4.5"
+                        class="half"></label>
+                    <input type="radio" name="rating" id="rating8" value="4" required><label for="rating8"
+                        title="4"></label>
+                    <input type="radio" name="rating" id="rating7" value="3.5" required><label for="rating7" title="3.5"
+                        class="half"></label>
+                    <input type="radio" name="rating" id="rating6" value="3" required><label for="rating6"
+                        title="3"></label>
+                    <input type="radio" name="rating" id="rating5" value="2.5" required><label for="rating5" title="2.5"
+                        class="half"></label>
+                    <input type="radio" name="rating" id="rating4" value="2" required><label for="rating4"
+                        title="2"></label>
+                    <input type="radio" name="rating" id="rating3" value="1.5" required><label for="rating3" title="1.5"
+                        class="half"></label>
+                    <input type="radio" name="rating" id="rating2" value="1" required><label for="rating2"
+                        title="1"></label>
+                    <input type="radio" name="rating" id="rating1" value="0.5" required><label for="rating1" title="0.5"
+                        class="half"></label>
                 </div>
             </div>
             <div>
                 Review:
-                <textarea name="review" id="review" class="form-control review-box" cols="10" rows="5" required></textarea>
+                <textarea name="review" id="review" class="form-control review-box" cols="10" rows="5"
+                    required></textarea>
             </div>
             <input type="submit" value="Submit Review" class="btn submit-review">
         </form>
@@ -185,40 +196,45 @@
         <h4>Customer Reviews ({{total_reviews}})</h4>
         {% for review in reviews %}
         <article class="box mb-3">
-                <div class="icontext w-100">
-                    <div class="text">
-                        <span class="date text-muted">{{review.created_on}}</span>
-                        <h6 class="mb-1">{{ review.user }}</h6>
-                        <div class="rating-star">
-                            <span>
-                                <i class="fa fa-star{% if review.rating == 0.5 %}-half-o{% elif review.rating < 1 %}-o {% endif %}" aria-hidden="true"></i>
-                                <i class="fa fa-star{% if review.rating == 1.5 %}-half-o{% elif review.rating < 2 %}-o {% endif %}" aria-hidden="true"></i>
-                                <i class="fa fa-star{% if review.rating == 2.5 %}-half-o{% elif review.rating < 3 %}-o {% endif %}" aria-hidden="true"></i>
-                                <i class="fa fa-star{% if review.rating == 3.5 %}-half-o{% elif review.rating < 4 %}-o {% endif %}" aria-hidden="true"></i>
-                                <i class="fa fa-star{% if review.rating == 4.5 %}-half-o{% elif review.rating < 5 %}-o {% endif %}" aria-hidden="true"></i>
-                            </span>
-                        </div>
+            <div class="icontext w-100">
+                <div class="text">
+                    <span class="date text-muted">{{review.created_on}}</span>
+                    <h6 class="mb-1">{{ review.user }}</h6>
+                    <div class="rating-star">
+                        <span>
+                            <i class="fa fa-star{% if review.rating == 0.5 %}-half-o{% elif review.rating < 1 %}-o {% endif %}"
+                                aria-hidden="true"></i>
+                            <i class="fa fa-star{% if review.rating == 1.5 %}-half-o{% elif review.rating < 2 %}-o {% endif %}"
+                                aria-hidden="true"></i>
+                            <i class="fa fa-star{% if review.rating == 2.5 %}-half-o{% elif review.rating < 3 %}-o {% endif %}"
+                                aria-hidden="true"></i>
+                            <i class="fa fa-star{% if review.rating == 3.5 %}-half-o{% elif review.rating < 4 %}-o {% endif %}"
+                                aria-hidden="true"></i>
+                            <i class="fa fa-star{% if review.rating == 4.5 %}-half-o{% elif review.rating < 5 %}-o {% endif %}"
+                                aria-hidden="true"></i>
+                        </span>
                     </div>
                 </div>
-                <div class="mt-2">
-                    <p>
-                        {{review.review}}
-                    </p>
-                </div>
-                {% if request.user == review.user or request.user.is_superuser %}
-                <div class="col text-right del-product">
-                    <a class="text-info" href="{% url 'edit_review' review.id %}">
-                        <i class="fa-solid fa-pencil"></i>
-                    </a>
-                    <a class="text-danger" href="{% url 'delete_review' review.id %}">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </a>
-                </div>
-                {% endif %}
+            </div>
+            <div class="mt-2">
+                <p>
+                    {{review.review}}
+                </p>
+            </div>
+            {% if request.user == review.user or request.user.is_superuser %}
+            <div class="col text-right del-product">
+                <a class="text-info" href="{% url 'edit_review' review.id %}">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+                <a class="text-danger" href="{% url 'delete_review' review.id %}">
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+            </div>
+            {% endif %}
             {% empty %}
-                <div class="font-italic mt-2">
-                    There are currently no reviews to display for this product.
-                </div>
+            <div class="font-italic mt-2">
+                There are currently no reviews to display for this product.
+            </div>
         </article>
         {% endfor %}
     </div>

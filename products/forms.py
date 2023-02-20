@@ -1,11 +1,14 @@
+"""Product App Forms"""
 from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Product, Category, Review
 
 
 class ProductForm(forms.ModelForm):
+    """Admin Add product form. Code from Boutique Ado"""
 
     class Meta:
+        """Include all Product Model fields"""
         model = Product
         fields = '__all__'
 

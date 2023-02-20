@@ -1,3 +1,4 @@
+"""Apps for favourites Model"""
 from django.apps import AppConfig
 
 

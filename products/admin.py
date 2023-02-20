@@ -1,3 +1,4 @@
+"""Products App Admin"""
 from django.contrib import admin
 from .models import Product, Category, Review
 
@@ -5,6 +6,7 @@ from .models import Product, Category, Review
 
 
 class ProductAdmin(admin.ModelAdmin):
+    """Admin Panel display for Product Model"""
     list_display = (
         'sku',
         'name',
@@ -18,6 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
+     """Admin Panel display for Categories Model"""
     list_display = (
         'friendly_name',
         'name',

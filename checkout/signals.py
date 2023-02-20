@@ -1,3 +1,5 @@
+"""Calls the update_total function from the Order Model
+each time an item is added/removed from the shopping bag"""
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 

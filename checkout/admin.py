@@ -1,13 +1,18 @@
+"""Admin setup for the checkout models"""
 from django.contrib import admin
 from .models import Order, OrderLineItem, Coupon
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """Admin setup for the OrderLineItem model
+    Tabular Inline allows admin to edit line items
+    inside the Order model"""
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """Admin setup for the Order model"""
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',
