@@ -20,7 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 class CategoryAdmin(admin.ModelAdmin):
-     """Admin Panel display for Categories Model"""
+    """Admin Panel display for Categories Model"""
     list_display = (
         'friendly_name',
         'name',
