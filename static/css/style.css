@@ -25,3 +25,9 @@ body,
     height: 100%;
   }
 }
+
+/* Mailchimp */
+
+#mc_embed_signup form {
+  margin: 0;
+}
