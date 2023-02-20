@@ -1,2 +1,47 @@
-<h1>Thank you for your inquiry</h1>
-<p>Your contact information and message was successfully submitted.</p>
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Thank You!</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <p class="my-3">Your inquiry was successful.</p>
+        <p>You will be contacted shortly on the email provided.</p>
+        <br>
+
+        <div class="text-center">
+            <a href="{% url 'home' %}" class="btn btn-outline-info rounded-3 ml-2" aria-label="products">
+                <span class="font-weight-bold"><i class="fa-solid fa-arrow-left"></i> Back to home</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
