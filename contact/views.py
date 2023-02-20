@@ -1,37 +1,30 @@
 """ Contact app views """
-from django.shortcuts import render
-from django.core.mail import send_mail
+from django.conf import settings
+from django.shortcuts import render, redirect, reverse
+from django.core.mail import send_mail, BadHeaderError
 from django.contrib import messages
+from .forms import MessageForm
+from django.http import HttpResponse
 
-# Create your views here.
 
-
+# Contact view
 def contact(request):
-    """View to return contact us page"""
+
     if request.method == 'POST':
-        # Send contact form to Gmail Account
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        subject = request.POST.get('subject')
-        message = request.POST.get('message')
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email_subject = f'New contact {form.cleaned_data["sender_email"]}: {form.cleaned_data["subject"]}'
+            email_message = form.cleaned_data['message']
+            send_mail(email_subject, email_message,  '', ['chris.mcgarry3@gmail.com'])
+            # Redirect to success page here.
+            messages.success(request, 'Contact request submitted successfully.')
+            return render(request, 'contact/success.html')  
+        else:
+            # Form is invalid. Render the form again with error messages.
+            messages.error(request, 'Invalid form submission.')
+            return render(request, 'contact/contact.html', {'form': form})  
+    else:
+        form = MessageForm()
 
-        message_data = {
-            'name': name,
-            'email': email,
-            'subject': subject,
-            'message': message,
-        }
-        message = '''
-        From: {}
-        New message: {}
-        '''.format(message_data['email'], message_data['message'])
-
-        send_mail(
-            message_data['subject'], message, '', ['chris.mcgarry3@gmail.com'])
-
-        messages.info(request, (
-            f'Your message has been sent, we will contact you \
-                via { email } as soon as possible.'))
-        return render(request, 'home/index.html')
-
-    return render(request, 'contact/contact.html')
+    return render(request, 'contact/contact.html', {'form': form})
